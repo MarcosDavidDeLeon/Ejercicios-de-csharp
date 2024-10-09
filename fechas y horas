@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Solicitar la primera fecha al usuario
+        Console.WriteLine("Ingrese la primera fecha (formato: yyyy-MM-dd HH:mm:ss): ");
+        DateTime fecha1;
+        
+        // Validar la entrada de la primera fecha
+        while (!DateTime.TryParse(Console.ReadLine(), out fecha1))
+        {
+            Console.WriteLine("Fecha inválida. Ingrese nuevamente en formato: yyyy-MM-dd HH:mm:ss");
+        }
+
+        // Solicitar la segunda fecha al usuario
+        Console.WriteLine("Ingrese la segunda fecha (formato: yyyy-MM-dd HH:mm:ss): ");
+        DateTime fecha2;
+
+        // Validar la entrada de la segunda fecha
+        while (!DateTime.TryParse(Console.ReadLine(), out fecha2))
+        {
+            Console.WriteLine("Fecha inválida. Ingrese nuevamente en formato: yyyy-MM-dd HH:mm:ss");
+        }
+
+        // Calcular la diferencia entre las dos fechas
+        TimeSpan diferencia = fecha2 - fecha1;
+
+        // Mostrar la diferencia en días, horas, minutos y segundos
+        Console.WriteLine("\nDiferencia entre las dos fechas:");
+        Console.WriteLine($"Días: {diferencia.Days}");
+        Console.WriteLine($"Horas: {diferencia.Hours}");
+        Console.WriteLine($"Minutos: {diferencia.Minutes}");
+        Console.WriteLine($"Segundos: {diferencia.Seconds}");
+    }
+}
