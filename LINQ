@@ -1,0 +1,38 @@
+using System;                  // Espacio de nombres necesario para la consola
+using System.Collections.Generic; // Espacio de nombres necesario para `List<T>`
+using System.Linq;             // Espacio de nombres necesario para LINQ
+
+class Program
+{
+    static void Main()
+    {
+        // Crear una lista de números
+        List<int> numeros = [5, 8, 1, 4, 7, 2, 9, 6, 3];
+
+        // Mostrar la lista original
+        Console.WriteLine("Lista original:");
+        Console.WriteLine(string.Join(", ", numeros));
+
+        // Filtrar los números pares utilizando LINQ
+        var numerosPares = numeros.Where(n => n % 2 == 0);
+
+        // Mostrar los números pares
+        Console.WriteLine("\nNúmeros pares en la lista:");
+        Console.WriteLine(string.Join(", ", numerosPares));
+
+        // Obtener el número máximo utilizando LINQ
+        int numeroMaximo = numeros.Max();
+        Console.WriteLine($"\nEl número máximo es: {numeroMaximo}");
+
+        // Ordenar la lista de números en forma ascendente
+        var numerosOrdenados = numeros.OrderBy(n => n);
+
+        // Mostrar la lista ordenada
+        Console.WriteLine("\nLista ordenada:");
+        Console.WriteLine(string.Join(", ", numerosOrdenados));
+
+        // Calcular la suma de todos los números en la lista
+        int sumaTotal = numeros.Sum();
+        Console.WriteLine($"\nLa suma total de los números es: {sumaTotal}");
+    }
+}
