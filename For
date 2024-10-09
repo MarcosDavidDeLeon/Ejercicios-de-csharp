@@ -1,0 +1,29 @@
+using System;
+
+namespace TablasDeMultiplicar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Solicitar al usuario el número para la tabla de multiplicar
+            Console.WriteLine("Ingrese el número para calcular su tabla de multiplicar:");
+            int numero = Convert.ToInt32(Console.ReadLine());
+
+            // Solicitar el límite máximo de la tabla
+            Console.WriteLine("Ingrese el límite hasta el cual desea ver la tabla (por ejemplo, 10):");
+            int limite = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"\nTabla de multiplicar del {numero} hasta el {limite}:\n");
+
+            // Usar el bucle for para generar la tabla de multiplicar
+            for (int i = 1; i <= limite; i++)
+            {
+                int resultado = numero * i;
+                Console.WriteLine($"{numero} x {i} = {resultado}");
+            }
+
+            Console.WriteLine("\n¡Tabla de multiplicar completa!");
+        }
+    }
+}
