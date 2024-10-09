@@ -1,0 +1,80 @@
+// Archivo: Calculadora.cs en el proyecto Biblioteca
+using System;
+
+namespace Biblioteca
+{
+    public class Calculadora
+    {
+        // Método para sumar dos números
+        public int Sumar(int a, int b)
+        {
+            return a + b;
+        }
+
+        // Método para restar dos números
+        public int Restar(int a, int b)
+        {
+            return a - b;
+        }
+
+        // Método para multiplicar dos números
+        public int Multiplicar(int a, int b)
+        {
+            return a * b;
+        }
+
+        // Método para dividir dos números (controlando la división por cero)
+        public double Dividir(int a, int b)
+        {
+            if (b == 0)
+                throw new DivideByZeroException("El divisor no puede ser cero.");
+            return (double)a / b;
+        }
+    }
+}
+
+
+// Archivo: Program.cs en el proyecto AplicacionPrincipal
+using System;
+using Biblioteca; // Usar el espacio de nombres de la biblioteca
+
+namespace AplicacionPrincipal
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Crear una instancia de la clase `Calculadora` desde la biblioteca
+            Calculadora calculadora = new Calculadora();
+
+            // Uso de los métodos del ensamblado `Biblioteca`
+            Console.WriteLine("Calculadora - Operaciones Básicas:");
+            Console.WriteLine($"Suma de 5 + 3: {calculadora.Sumar(5, 3)}");
+            Console.WriteLine($"Resta de 10 - 4: {calculadora.Restar(10, 4)}");
+            Console.WriteLine($"Multiplicación de 6 * 7: {calculadora.Multiplicar(6, 7)}");
+
+            try
+            {
+                Console.WriteLine($"División de 20 / 4: {calculadora.Dividir(20, 4)}");
+                Console.WriteLine($"División de 20 / 0: {calculadora.Dividir(20, 0)}");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            Console.WriteLine("Presione cualquier tecla para salir...");
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
