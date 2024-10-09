@@ -1,0 +1,52 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear un empleado utilizando la clase Empleado
+        Empleado empleado1 = new Empleado("Marcos", "De Leon", 35000);
+        Empleado empleado2 = new Empleado("Ana", "Garcia", 40000);
+
+        // Mostrar información básica del empleado
+        empleado1.MostrarInformacion();
+        Console.WriteLine(); // Espacio entre empleados
+        empleado2.MostrarInformacion();
+
+        // Calcular el sueldo neto con descuentos
+        Console.WriteLine("\nCalcular sueldo neto con un descuento del 15%.");
+        Console.WriteLine($"Sueldo neto de {empleado1.Nombre}: {empleado1.CalcularSueldoNeto(0.15)}");
+        Console.WriteLine($"Sueldo neto de {empleado2.Nombre}: {empleado2.CalcularSueldoNeto(0.15)}");
+    }
+}
+
+// Definición de la clase Empleado
+class Empleado
+{
+    // Propiedades de la clase Empleado
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+    public double SalarioBruto { get; set; }
+
+    // Constructor de la clase Empleado
+    public Empleado(string nombre, string apellido, double salarioBruto)
+    {
+        Nombre = nombre;
+        Apellido = apellido;
+        SalarioBruto = salarioBruto;
+    }
+
+    // Método para calcular el sueldo neto con un descuento específico
+    public double CalcularSueldoNeto(double porcentajeDescuento)
+    {
+        return SalarioBruto * (1 - porcentajeDescuento);
+    }
+
+    // Método para mostrar la información del empleado
+    public void MostrarInformacion()
+    {
+        Console.WriteLine("=== Información del Empleado ===");
+        Console.WriteLine($"Nombre Completo: {Nombre} {Apellido}");
+        Console.WriteLine($"Salario Bruto: {SalarioBruto:C}");
+    }
+}
